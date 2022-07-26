@@ -45,7 +45,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            Academia Bartenders App
           </Typography>
         </Toolbar>
       </AppBar>
