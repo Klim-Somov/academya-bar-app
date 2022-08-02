@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentCategory: "Сезонные",
-  categoryIndex: 2,
+  currentCategory: "Горячие",
+  categoryIndex: 0,
 };
 
 export const filterSlice = createSlice({

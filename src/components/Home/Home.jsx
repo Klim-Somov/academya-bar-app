@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import { useSelector } from "react-redux/es/exports";
 import style from "./Home.module.scss"
+import BackToTopBtn from "../BackToTopBtn/BackToTopBtn";
 
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -45,7 +46,6 @@ function Home() {
   const currentCategory = useSelector((state) => state.filter.currentCategory);
 
   const result = technos.filter((arr) => arr.category === currentCategory);
-  console.log(result);
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -57,12 +57,12 @@ function Home() {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="230"
+                  height="240"
                   image={obj.img}
                   alt={obj.name}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography  className={style.cardTitle} gutterBottom variant="h5" component="div">
                     {obj.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
@@ -82,6 +82,7 @@ function Home() {
             </Card>
           ))}
         </div>
+        <BackToTopBtn  />
       </Main>
     </Box>
   );

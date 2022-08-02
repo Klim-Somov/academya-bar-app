@@ -16,12 +16,15 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { setClose } from "../../features/menuSlice";
-
-
-
+import sideBg from "../../assets/img/bar-bg.jpg";
+import LogoutIcon from '@mui/icons-material/Logout';
+import { logout } from "../../features/userSlice";
+import ArtTrackIcon from '@mui/icons-material/ArtTrack';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import style from './SideBar.module.scss';
+import {Link} from "react-router-dom"
 const drawerWidth = 240;
-
-
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -33,12 +36,17 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function SideBar() {
+  
   const theme = useTheme();
   const open = useSelector((state) => state.togleMenu.open);
 
   const dispatch = useDispatch();
 
   const handleDrawerClose = () => {
+    dispatch(setClose());
+  };
+  const handleLogout = () => {
+    dispatch(logout())
     dispatch(setClose());
   };
 
@@ -66,41 +74,51 @@ export default function SideBar() {
             ) : (
               <ChevronRightIcon />
             )}
-          </IconButton>
+          </IconButton><div className={style.sidebarLogo}>
+            <img src='https://s3.m2data.net/public/73461/bez-imeni.png' />
+          </div>
         </DrawerHeader>
-        <Divider />
+        
+       
         <List>
           <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Технологички" />
-            </ListItemButton>
+            <Link to='/'>
+              <ListItemButton>
+                <ListItemIcon>
+                  <ArtTrackIcon fontSize="large" />
+                </ListItemIcon>
+                <ListItemText primary="Технологички" />
+              </ListItemButton>
+            </Link>
           </ListItem>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <ContactPhoneIcon />
               </ListItemIcon>
               <ListItemText primary="Контакты поставщиков" />
             </ListItemButton>
           </ListItem>
-          
-          
+
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <InboxIcon />
+                <NewspaperIcon />
               </ListItemIcon>
               <ListItemText primary="Новости" />
             </ListItemButton>
           </ListItem>
 
+          <ListItem disablePadding>
+            <ListItemButton onClick={handleLogout}>
+              <ListItemIcon>
+              <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText primary="Выйти из профиля" />
+            </ListItemButton>
+          </ListItem>
         </List>
       </Drawer>
-
-      
     </Box>
   );
 }
