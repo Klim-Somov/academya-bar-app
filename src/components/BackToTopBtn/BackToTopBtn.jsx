@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
@@ -26,7 +25,7 @@ const BackToTopBtn = () => {
   return (
     <>
       {backToTopBtn && (
-        <div style={{ position: "fixed", bottom: "50px", right: "50px" }}>
+        <div style={{ position: "fixed", bottom: "50px", right: "30px" }}>
           <Fab
             sx={{ backgroundColor: "#d0ceed" }}
             onClick={hehdelScroll}
