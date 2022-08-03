@@ -23,7 +23,7 @@ import ArtTrackIcon from '@mui/icons-material/ArtTrack';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import style from './SideBar.module.scss';
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 const drawerWidth = 240;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -39,7 +39,7 @@ export default function SideBar() {
   
   const theme = useTheme();
   const open = useSelector((state) => state.togleMenu.open);
-
+  const navigate = useNavigate()
   const dispatch = useDispatch();
 
   const handleDrawerClose = () => {
@@ -48,6 +48,7 @@ export default function SideBar() {
   const handleLogout = () => {
     dispatch(logout())
     dispatch(setClose());
+    navigate("/login", { replace: true })
   };
 
   return (
@@ -82,7 +83,7 @@ export default function SideBar() {
        
         <List>
           <ListItem disablePadding>
-            <Link to='/'>
+            <Link to='/technos'>
               <ListItemButton>
                 <ListItemIcon>
                   <ArtTrackIcon fontSize="large" />

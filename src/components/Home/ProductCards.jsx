@@ -7,7 +7,7 @@ import { CardActionArea } from "@mui/material";
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import { useSelector } from "react-redux/es/exports";
-import style from "./Home.module.scss"
+import style from "./ProductCards.module.scss"
 import BackToTopBtn from "../BackToTopBtn/BackToTopBtn";
 
 
@@ -39,7 +39,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   })
 );
 
-function Home() {
+function ProductCards() {
   const theme = useTheme();
   const open = useSelector((state) => state.togleMenu.open);
   const technos = useSelector((state) => state.technos);
@@ -88,4 +88,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default ProductCards;
