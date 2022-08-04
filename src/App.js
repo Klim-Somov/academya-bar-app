@@ -13,6 +13,7 @@ import { auth } from "./firebase";
 import SideBar from "./components/SideBar/SideBar";
 import Technos from "./pages/Technos";
 import Main from "./pages/Main/Main";
+import Chat from "./pages/Chat/Chat";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
         <Route path="/technos" element={user.user ? <Technos /> : <Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
     </>

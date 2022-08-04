@@ -50,9 +50,17 @@ export default function SideBar() {
     dispatch(setClose());
     navigate("/login", { replace: true })
   };
+  const menuRef = React.useRef()
+
+  React.useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+     if (!e.target !== menuRef)
+     dispatch(setClose())
+    });
+  }, []);
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box ref={menuRef} sx={{ display: "flex" }}>
       <CssBaseline />
 
       <Drawer
@@ -102,12 +110,14 @@ export default function SideBar() {
           </ListItem>
 
           <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <NewspaperIcon />
-              </ListItemIcon>
-              <ListItemText primary="Новости" />
-            </ListItemButton>
+           <Link to="/chat">
+              <ListItemButton>
+                <ListItemIcon>
+                  <NewspaperIcon />
+                </ListItemIcon>
+                <ListItemText primary="Общение" />
+              </ListItemButton>
+           </Link>
           </ListItem>
 
           <ListItem disablePadding>

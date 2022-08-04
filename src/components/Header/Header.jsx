@@ -2,7 +2,7 @@ import { Avatar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useSelector, useDispatch } from "react-redux/es/exports";
-import { setOpen } from "../../features/menuSlice";
+import { setClose, setOpen } from "../../features/menuSlice";
 import MuiAppBar from "@mui/material/AppBar";
 import { styled, useTheme } from "@mui/material/styles";
 import style from "./Header.module.scss";
@@ -31,8 +31,9 @@ export default function Header() {
   const theme = useTheme();
   const open = useSelector((state) => state.togleMenu.open);
   const user = useSelector((state) => state.user);
-
   const dispatch = useDispatch();
+
+  
 
   return (
     <Box sx={{ display: "flex" }}>
