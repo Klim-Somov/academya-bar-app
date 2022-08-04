@@ -14,9 +14,17 @@ import FlipMove from "react-flip-move";
 import InputOption from "../../components/InputOption/InputOption";
 
 function Chat() {
+  const user = useSelector((state) => state.user.user);
+
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState("");
-  const user = useSelector((state) => state.user.user);
+  const [shareImage, setShareImage] = useState("");
+
+  const hendleChange = (e) => {
+    const image = e.target.files[0];
+    setShareImage(image);
+    console.log(shareImage);
+  };
 
   const postRef = ref(db, "posts");
   const getpostRefById = (id) => ref(db, `posts/${id}`);
@@ -42,14 +50,14 @@ function Chat() {
 
     return unsubscribe;
   }, []);
-console.log(posts)
+
   return (
     <div className="feed">
       <div className="feed__inputContainer">
         <div className="feed__input">
           <CreateIcon />
           <form>
-            <input 
+            <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               type="text"
@@ -59,8 +67,21 @@ console.log(posts)
             </button>
           </form>
         </div>
-        <div className="feed__inputOption">
-          <InputOption color="#70b5f9" Icon={PhotoLibraryIcon} text="photo" />
+        <div className="feed__inputOption" style={{ position: "relative" }}>
+          <input
+            type="file"
+            name="image"
+            id="file"
+            exept="image/gif, image/jpeg, image/png"
+            style={{
+              display: "none",
+            }}
+            onChange={hendleChange}
+          />
+          <label htmlFor="file">
+         
+            <InputOption color="#70b5f9" Icon={PhotoLibraryIcon} text="photo" />
+          </label>
           <InputOption color="#e7a33E" Icon={VideoLibraryIcon} text="video" />
           <InputOption color="c0cbcd" Icon={EventIcon} text="Event" />
           <InputOption color="7fc15e" Icon={FeedIcon} text="Wright article" />
@@ -68,13 +89,12 @@ console.log(posts)
       </div>
 
       <FlipMove>
-      {posts.map((post) => (
+        {posts.map((post) => (
           <Post
             key={post.id}
             name={post.name}
             msg={post.message}
             description={post.description}
-            
           />
         ))}
       </FlipMove>

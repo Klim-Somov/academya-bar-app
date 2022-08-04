@@ -5,15 +5,15 @@
 }
 
 body {
-
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   margin: 0;
   min-height: 100vh;
-  background-image: url("../src/assets/img/mainBg.jpg");
-  background-position: center;
+  /* background-image: url("../src/assets/img/mainBg.jpg"); */
+  background-color: #f3f2ef !important;
+  /* background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
