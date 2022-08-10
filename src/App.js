@@ -11,7 +11,7 @@ import { login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
 import SideBar from "./components/SideBar/SideBar";
 import Technos from "./pages/Technos";
-import Main from "./pages/Main/Main";
+// import Main from "./pages/Main/Main";
 import Chat from "./pages/Chat/Chat";
 // import { setAvatar } from "./features/avatarImgSlice";
 // import { getDownloadURL, ref } from "firebase/storage";

@@ -1,23 +1,24 @@
-import {
-  ChatOutlined,
-  SendOutlined,
-  ShareOutlined,
-  ThumbUpAltOutlined,
-} from "@mui/icons-material";
+// import {
+//   ChatOutlined,
+//   SendOutlined,
+//   ShareOutlined,
+//   ThumbUpAltOutlined,
+// } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React, { forwardRef } from "react";
 import { useSelector } from "react-redux";
-import InputOption from "../InputOption/InputOption";
+// import InputOption from "../InputOption/InputOption";
 // import InputOption from "./InputOption";
 import "./Post.scss";
 
 const Post = forwardRef(({ name, description, msg, img }, ref) => {
-  
   const avatar = useSelector((state) => state.avatar.avatarUrl);
   return (
     <div ref={ref} className="post">
       <div className="post__header">
-        <Avatar sx={{ bgcolor: "#BCBCBC" }}src={avatar}>{name[0]}</Avatar>
+        <Avatar sx={{ bgcolor: "#BCBCBC" }} src={avatar}>
+          {name[0]}
+        </Avatar>
         <div className="post__info">
           <h2>{name}</h2>
           <p>{description}</p>
@@ -25,7 +26,7 @@ const Post = forwardRef(({ name, description, msg, img }, ref) => {
       </div>
       <div className="post__body">
         <p>{msg}</p>
-        <img src={img}/>
+        <img alt="" src={img} />
       </div>
       {/* <div className="post__btns">
         <InputOption text="Like" Icon={ThumbUpAltOutlined} color="gray" />

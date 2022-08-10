@@ -14,19 +14,17 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { setClose } from "../../features/menuSlice";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import { logout } from "../../features/userSlice";
-import ArtTrackIcon from '@mui/icons-material/ArtTrack';
 // import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
-import NewspaperIcon from '@mui/icons-material/Newspaper';
-import style from './SideBar.module.scss';
-import {Link, useNavigate} from "react-router-dom"
+import style from "./SideBar.module.scss";
+import { Link, useNavigate } from "react-router-dom";
 import { setAvatar } from "../../features/avatarImgSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
-import ChromeReaderModeOutlinedIcon from '@mui/icons-material/ChromeReaderModeOutlined';
-import bg from "../../assets/img/cup.jpg"
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import ChromeReaderModeOutlinedIcon from "@mui/icons-material/ChromeReaderModeOutlined";
+import bg from "../../assets/img/cup.jpg";
 const drawerWidth = 240;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -39,32 +37,31 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 export default function SideBar() {
-  
   const theme = useTheme();
   const open = useSelector((state) => state.togleMenu.open);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleDrawerClose = () => {
     dispatch(setClose());
   };
   const handleLogout = () => {
-    signOut(auth).then(() => {
-       dispatch(logout())
-    dispatch(setClose());
-    dispatch(setAvatar(null));
-    navigate("/login", { replace: true })
-    }).catch((error) => {
-      console.log(error.message);
-    });
-   
+    signOut(auth)
+      .then(() => {
+        dispatch(logout());
+        dispatch(setClose());
+        dispatch(setAvatar(null));
+        navigate("/login", { replace: true });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
-  const menuRef = React.useRef()
+  const menuRef = React.useRef();
 
   React.useEffect(() => {
     document.addEventListener("mousedown", (e) => {
-     if (!e.target !== menuRef)
-     dispatch(setClose())
+      if (!e.target !== menuRef) dispatch(setClose());
     });
   }, []);
 
@@ -81,9 +78,8 @@ export default function SideBar() {
             boxSizing: "border-box",
             backgroundImage: `url(${bg})`,
             backgroundSize: "contain",
-            backgroundRepeat: 'no-repeat',
-            backgroundPositionY: '250px',
-            
+            backgroundRepeat: "no-repeat",
+            backgroundPositionY: "250px",
           },
         }}
         variant="persistent"
@@ -97,18 +93,18 @@ export default function SideBar() {
             ) : (
               <ChevronRightIcon />
             )}
-          </IconButton><div className={style.sidebarLogo}>
+          </IconButton>
+          <div className={style.sidebarLogo}>
             {/* <img src='https://s3.m2data.net/public/73461/bez-imeni.png' /> */}
           </div>
         </DrawerHeader>
-        
-       
+
         <List>
           <ListItem disablePadding>
-            <Link to='/technos'>
+            <Link to="/technos">
               <ListItemButton>
                 <ListItemIcon>
-                  <ChromeReaderModeOutlinedIcon sx={{ color:"black"}}  />
+                  <ChromeReaderModeOutlinedIcon sx={{ color: "black" }} />
                 </ListItemIcon>
                 <ListItemText primary="Технологички" />
               </ListItemButton>
@@ -124,20 +120,20 @@ export default function SideBar() {
           </ListItem> */}
 
           <ListItem disablePadding>
-           <Link to="/chat">
+            <Link to="/chat">
               <ListItemButton>
                 <ListItemIcon>
-                  <ChatBubbleOutlineIcon sx={{ color:"black" }} />
+                  <ChatBubbleOutlineIcon sx={{ color: "black" }} />
                 </ListItemIcon>
                 <ListItemText primary="Общение и коментарии" />
               </ListItemButton>
-           </Link>
+            </Link>
           </ListItem>
 
           <ListItem disablePadding>
             <ListItemButton onClick={handleLogout}>
               <ListItemIcon>
-              <LogoutIcon  sx={{ color:"black" }}/>
+                <LogoutIcon sx={{ color: "black" }} />
               </ListItemIcon>
               <ListItemText primary="Выйти из профиля" />
             </ListItemButton>

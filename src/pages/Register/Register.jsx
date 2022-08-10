@@ -3,10 +3,10 @@ import "./Register.scss";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, storage } from "../../firebase";
+import { auth } from "../../firebase";
 import { login } from "../../features/userSlice";
 import { useNavigate } from "react-router-dom";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+// import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 // import { setAvatar } from "../../features/avatarImgSlice";
 
 function Register() {

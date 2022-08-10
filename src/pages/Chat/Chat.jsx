@@ -49,7 +49,7 @@ function Chat() {
 
     return unsubscribe;
   }, []);
-console.log(posts);
+
   return (
     <div className="feed">
       <div className="feed__inputContainer">
