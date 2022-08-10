@@ -18,13 +18,12 @@ function Chat() {
 
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState("");
-  const [shareImage, setShareImage] = useState("");
+  // const [shareImage, setShareImage] = useState("");
 
-  const hendleChange = (e) => {
-    const image = e.target.files[0];
-    setShareImage(image);
-    console.log(shareImage);
-  };
+  // const hendleChange = (e) => {
+  //  ;
+  //   setShareImage(e.target.files[0]);
+  // };
 
   const postRef = ref(db, "posts");
   const getpostRefById = (id) => ref(db, `posts/${id}`);
@@ -38,7 +37,7 @@ function Chat() {
       timestamp: serverTimestamp(),
       id: Date.now(),
     };
-    console.log(newPost);
+
     setInput("");
     set(getpostRefById(newPost.id), newPost);
   };
@@ -50,7 +49,7 @@ function Chat() {
 
     return unsubscribe;
   }, []);
-
+console.log(posts);
   return (
     <div className="feed">
       <div className="feed__inputContainer">
@@ -68,7 +67,7 @@ function Chat() {
           </form>
         </div>
         <div className="feed__inputOption" style={{ position: "relative" }}>
-          <input
+          {/* <input
             type="file"
             name="image"
             id="file"
@@ -76,16 +75,16 @@ function Chat() {
             style={{
               display: "none",
             }}
-            onChange={hendleChange}
-          />
-          <label htmlFor="file">
-         
-            <InputOption color="#70b5f9" Icon={PhotoLibraryIcon} text="photo" />
-          </label>
+            // onChange={hendleChange}
+          /> */}
+          {/* <label htmlFor="file"> */}
+          <InputOption color="#70b5f9" Icon={PhotoLibraryIcon} text="photo" />
+          {/* </label> */}
           <InputOption color="#e7a33E" Icon={VideoLibraryIcon} text="video" />
           <InputOption color="c0cbcd" Icon={EventIcon} text="Event" />
           <InputOption color="7fc15e" Icon={FeedIcon} text="Wright article" />
         </div>
+        {/* {shareImage && <img src={URL.createObjectURL(shareImage)}/>} */}
       </div>
 
       <FlipMove>

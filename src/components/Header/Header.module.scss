@@ -1,6 +1,7 @@
 .root {
   display: flex;
-  background-color: rgb(102, 102, 119);
+  background-color: rgb(186, 186, 186);
+
   
 }
 .avatarrr {
@@ -14,17 +15,18 @@
 }
 
 .headerOption {
-  margin: 5px 0;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  color: rgb(232, 232, 232);
+  color: rgb(255, 255, 255);
   align-items: center;
-  font-size: 8px;
+  font-size: 10px;
   cursor: pointer;
   transition: all 0.5s;
   span {
     text-align: center;
     font-size: 15px;
+    
   }
   
 }

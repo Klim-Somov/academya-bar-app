@@ -5,7 +5,7 @@ import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
+// import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -13,10 +13,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { setClose } from "../../features/menuSlice";
-import sideBg from "../../assets/img/bar-bg.jpg";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from "../../features/userSlice";
 import ArtTrackIcon from '@mui/icons-material/ArtTrack';
@@ -24,6 +22,9 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import style from './SideBar.module.scss';
 import {Link, useNavigate} from "react-router-dom"
+import { setAvatar } from "../../features/avatarImgSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 const drawerWidth = 240;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -46,9 +47,15 @@ export default function SideBar() {
     dispatch(setClose());
   };
   const handleLogout = () => {
-    dispatch(logout())
+    signOut(auth).then(() => {
+       dispatch(logout())
     dispatch(setClose());
+    dispatch(setAvatar(null));
     navigate("/login", { replace: true })
+    }).catch((error) => {
+      console.log(error.message);
+    });
+   
   };
   const menuRef = React.useRef()
 
@@ -94,7 +101,7 @@ export default function SideBar() {
             <Link to='/technos'>
               <ListItemButton>
                 <ListItemIcon>
-                  <ArtTrackIcon fontSize="large" />
+                  <ArtTrackIcon sx={{ color:"black" }} fontSize="large" />
                 </ListItemIcon>
                 <ListItemText primary="Технологички" />
               </ListItemButton>
@@ -103,7 +110,7 @@ export default function SideBar() {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <ContactPhoneIcon />
+                <ContactPhoneIcon  sx={{ color:"black" }} />
               </ListItemIcon>
               <ListItemText primary="Контакты поставщиков" />
             </ListItemButton>
@@ -113,7 +120,7 @@ export default function SideBar() {
            <Link to="/chat">
               <ListItemButton>
                 <ListItemIcon>
-                  <NewspaperIcon />
+                  <NewspaperIcon  sx={{ color:"black" }} />
                 </ListItemIcon>
                 <ListItemText primary="Общение" />
               </ListItemButton>
@@ -123,7 +130,7 @@ export default function SideBar() {
           <ListItem disablePadding>
             <ListItemButton onClick={handleLogout}>
               <ListItemIcon>
-              <LogoutIcon />
+              <LogoutIcon  sx={{ color:"black" }}/>
               </ListItemIcon>
               <ListItemText primary="Выйти из профиля" />
             </ListItemButton>

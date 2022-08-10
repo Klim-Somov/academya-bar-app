@@ -1,12 +1,13 @@
 import { Avatar, Box, IconButton, Toolbar, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useSelector, useDispatch } from "react-redux/es/exports";
-import { setClose, setOpen } from "../../features/menuSlice";
+import { setOpen } from "../../features/menuSlice";
 import MuiAppBar from "@mui/material/AppBar";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import style from "./Header.module.scss";
 import logo from "../../assets/img/Coffee-or-bartender.png";
+import { auth } from "../../firebase";
 
 const drawerWidth = 240;
 
@@ -28,12 +29,17 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 export default function Header() {
-  const theme = useTheme();
   const open = useSelector((state) => state.togleMenu.open);
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-
+  const avatar = auth?.currentUser?.photoURL;
   
+  const dispatch = useDispatch();
+console.log(avatar);
+
+useEffect(() => {
+  
+  
+}, [avatar])
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -63,7 +69,9 @@ export default function Header() {
           </Typography>
 
           <div className={style.headerOption}>
-            <Avatar sx={{ bgcolor: "#d0ceed" }}>{user?.user?.email[0]}</Avatar>
+            <Avatar src={avatar} sx={{ width:'56px', height:'56px', bgcolor: "#c96777" }}>
+              {user?.user?.email[0]}
+            </Avatar>
             {user.user ? (
               <span>{user?.user?.displayName}</span>
             ) : (

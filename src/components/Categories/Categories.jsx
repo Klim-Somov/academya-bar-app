@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setCategoryIndex,
@@ -13,7 +12,6 @@ function Categories() {
 
 
   const categoryIndex = useSelector((state) => state.filter.categoryIndex);
-  const technos = useSelector((state) => state.technos);
   const dispatch = useDispatch();
 
   const categoriesList = [
