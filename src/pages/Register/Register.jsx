@@ -7,37 +7,37 @@ import { auth, storage } from "../../firebase";
 import { login } from "../../features/userSlice";
 import { useNavigate } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { setAvatar } from "../../features/avatarImgSlice";
+// import { setAvatar } from "../../features/avatarImgSlice";
 
 function Register() {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
   const [email, setEmail] = useState("");
-  const [image, setImage] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  // const [image, setImage] = useState("");
+  // const [imageUrl, setImageUrl] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const hendleChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-      const imageRef = ref(storage, "image");
-      uploadBytes(imageRef, image)
-        .then(() => {
-          getDownloadURL(imageRef)
-            .then((url) => {
-              setImageUrl(url);
-            })
-            .catch((error) => {
-              console.log(error.message, "error getting the image url");
-            });
-          setImage(null);
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    }
-  };
+  // const hendleChange = (e) => {
+  //   if (e.target.files[0]) {
+  //     setImage(e.target.files[0]);
+  //     const imageRef = ref(storage, "image");
+  //     uploadBytes(imageRef, image)
+  //       .then(() => {
+  //         getDownloadURL(imageRef)
+  //           .then((url) => {
+  //             setImageUrl(url);
+  //           })
+  //           .catch((error) => {
+  //             console.log(error.message, "error getting the image url");
+  //           });
+  //         setImage(null);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error.message);
+  //       });
+  //   }
+  // };
 
   const ReegisterToApp = (e) => {
     e.preventDefault();
@@ -47,7 +47,7 @@ function Register() {
         const user = userCredential.user;
         updateProfile(user, {
           displayName: name,
-          photoURL: imageUrl,
+          // photoURL: imageUrl,
         }).then(() => {
           dispatch(
             login({
@@ -68,7 +68,7 @@ function Register() {
     <div className="login">
       <img src="https://s3.m2data.net/public/73461/bez-imeni.png" alt="" />
       <form>
-        <img src={imageUrl} alt="имаге" />
+        {/* <img src={imageUrl} alt="имаге" /> */}
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -76,7 +76,7 @@ function Register() {
           placeholder="Имя"
         />
 
-        <label htmlFor="file">
+        {/* <label htmlFor="file">
           <div>{!image ? "Загрузить аватарку" : "Аватар загружен"}</div>
         </label>
         <input
@@ -86,7 +86,7 @@ function Register() {
           type="file"
           id="file"
           style={{ display: "none" }}
-        />
+        /> */}
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
