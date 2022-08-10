@@ -3,7 +3,6 @@ import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import List from "@mui/material/List";
 // import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -18,7 +17,7 @@ import { setClose } from "../../features/menuSlice";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { logout } from "../../features/userSlice";
 import ArtTrackIcon from '@mui/icons-material/ArtTrack';
-import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
+// import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import style from './SideBar.module.scss';
 import {Link, useNavigate} from "react-router-dom"
@@ -107,14 +106,14 @@ export default function SideBar() {
               </ListItemButton>
             </Link>
           </ListItem>
-          <ListItem disablePadding>
+          {/* <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <ContactPhoneIcon  sx={{ color:"black" }} />
               </ListItemIcon>
               <ListItemText primary="Контакты поставщиков" />
             </ListItemButton>
-          </ListItem>
+          </ListItem> */}
 
           <ListItem disablePadding>
            <Link to="/chat">
@@ -122,7 +121,7 @@ export default function SideBar() {
                 <ListItemIcon>
                   <NewspaperIcon  sx={{ color:"black" }} />
                 </ListItemIcon>
-                <ListItemText primary="Общение" />
+                <ListItemText primary="Общение и коментарии" />
               </ListItemButton>
            </Link>
           </ListItem>

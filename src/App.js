@@ -4,26 +4,22 @@ import { useSelector, useDispatch } from "react-redux/es/exports";
 
 import "./App.css";
 import Header from "./components/Header/Header";
-
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { onAuthStateChanged } from "firebase/auth";
 import { login, logout } from "./features/userSlice";
-import { auth, storage } from "./firebase";
+import { auth } from "./firebase";
 import SideBar from "./components/SideBar/SideBar";
 import Technos from "./pages/Technos";
 import Main from "./pages/Main/Main";
 import Chat from "./pages/Chat/Chat";
-import { setAvatar } from "./features/avatarImgSlice";
-import { getDownloadURL, ref } from "firebase/storage";
+// import { setAvatar } from "./features/avatarImgSlice";
+// import { getDownloadURL, ref } from "firebase/storage";
 
 function App() {
   const user = useSelector((state) => state.user);
-  const avatar = useSelector((state) => state.avatar.avatarUrl);
-
+  // const avatar = useSelector((state) => state.avatar.avatarUrl);
   const dispatch = useDispatch();
-
-  console.log(auth.currentUser);
 
   useEffect(() => {
     onAuthStateChanged(auth, (userAuth) => {
@@ -35,7 +31,6 @@ function App() {
             photoUrl: userAuth.photoURL,
           })
         );
-
         // getDownloadURL(ref(storage, `image`))
         // .then((url) => {
         //   dispatch(setAvatar(url));
@@ -54,7 +49,7 @@ function App() {
       <Header />
       <SideBar />
       <Routes>
-        <Route path="/" element={user.user ? <Main /> : <Login />} />
+        <Route path="/" element={user.user ? <Technos /> : <Login />} />
         <Route path="/technos" element={user.user ? <Technos /> : <Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
