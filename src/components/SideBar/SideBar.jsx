@@ -24,6 +24,9 @@ import {Link, useNavigate} from "react-router-dom"
 import { setAvatar } from "../../features/avatarImgSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import ChromeReaderModeOutlinedIcon from '@mui/icons-material/ChromeReaderModeOutlined';
+import bg from "../../assets/img/cup.jpg"
 const drawerWidth = 240;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -76,6 +79,11 @@ export default function SideBar() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            backgroundImage: `url(${bg})`,
+            backgroundSize: "contain",
+            backgroundRepeat: 'no-repeat',
+            backgroundPositionY: '250px',
+            
           },
         }}
         variant="persistent"
@@ -90,7 +98,7 @@ export default function SideBar() {
               <ChevronRightIcon />
             )}
           </IconButton><div className={style.sidebarLogo}>
-            <img src='https://s3.m2data.net/public/73461/bez-imeni.png' />
+            {/* <img src='https://s3.m2data.net/public/73461/bez-imeni.png' /> */}
           </div>
         </DrawerHeader>
         
@@ -100,7 +108,7 @@ export default function SideBar() {
             <Link to='/technos'>
               <ListItemButton>
                 <ListItemIcon>
-                  <ArtTrackIcon sx={{ color:"black" }} fontSize="large" />
+                  <ChromeReaderModeOutlinedIcon sx={{ color:"black"}}  />
                 </ListItemIcon>
                 <ListItemText primary="Технологички" />
               </ListItemButton>
@@ -119,7 +127,7 @@ export default function SideBar() {
            <Link to="/chat">
               <ListItemButton>
                 <ListItemIcon>
-                  <NewspaperIcon  sx={{ color:"black" }} />
+                  <ChatBubbleOutlineIcon sx={{ color:"black" }} />
                 </ListItemIcon>
                 <ListItemText primary="Общение и коментарии" />
               </ListItemButton>
