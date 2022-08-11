@@ -58,12 +58,12 @@ function Login() {
         </button>
       </form>
 
-      <p>
+      <div className="login__register-wraper" >
         не зарегистрирован?
         <Link to="/register">
           <span className="login__register">Зарегистрироваться</span>
         </Link>
-      </p>
+      </div>
     </div>
   );
 }

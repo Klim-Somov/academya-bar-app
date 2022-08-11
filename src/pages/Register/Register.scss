@@ -5,10 +5,10 @@
   margin-right: auto;
   padding-top: 100px;
   height: 100vh;
-  background-image: url("../../assets/img/regBG.png");
+  // background-image: url("../../assets/img/regBG.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 4;
+  background-position: center;
 }
 .login > img {
   border-radius: 20px;
@@ -20,6 +20,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding:50px 15px;
+  background-color:rgba(62, 62, 61, 0.6);
+  border-radius: 15px
 }
 .login > form > label > div {
   width: 350px;
@@ -33,7 +36,7 @@
 }
 
 .login > form > input {
-  width: 350px;
+  max-width: 350px;
   height: 50px;
   font-size: 20px;
   padding-left: 10px;
@@ -42,24 +45,26 @@
   border: none;
 }
 .login > form > button {
-  width: 350px;
+  width: 226px;
   height: 50px;
   font-size: larger;
   color: #ffff;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #244746;
   cursor: pointer;
   border: none;
   margin-top: 40px;
 }
-.login > p {
 
-}
-.login > p > span {
-}
 .login__register {
   font-size: 20px;
   color: #244746;
   cursor: pointer;
   font-weight: bold;
+}
+.login__register-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }

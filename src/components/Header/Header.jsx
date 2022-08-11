@@ -34,12 +34,8 @@ export default function Header() {
   const avatar = auth?.currentUser?.photoURL;
   
   const dispatch = useDispatch();
-console.log(avatar);
 
-useEffect(() => {
-  
-  
-}, [avatar])
+
 
   return (
     <Box sx={{ display: "flex" }}>

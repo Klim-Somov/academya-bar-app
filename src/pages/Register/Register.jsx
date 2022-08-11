@@ -104,7 +104,7 @@ function Register() {
         </button>
       </form>
 
-      <p>
+      <p className="login__register-wraper">
         уже зарегистрирован?
         <Link to="/login">
           <span className="login__register">Войти</span>
