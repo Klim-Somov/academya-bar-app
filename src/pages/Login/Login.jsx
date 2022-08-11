@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./Login.scss";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -8,12 +7,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
 function Login() {
-
   const [pass, setPass] = useState("");
   const [email, setEmail] = useState("");
 
   const dispatch = useDispatch();
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const loginToApp = (e) => {
     e.preventDefault();
@@ -26,7 +24,7 @@ function Login() {
             displayName: user.displayName,
           })
         );
-        navigate("/", { replace: true })
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -36,10 +34,7 @@ function Login() {
 
   return (
     <div className="login">
-      <img
-        src="https://s3.m2data.net/public/73461/bez-imeni.png"
-        alt=""
-      />
+      <img src="https://s3.m2data.net/public/73461/bez-imeni.png" alt="" />
       <form>
         <input
           value={email}
@@ -58,7 +53,7 @@ function Login() {
         </button>
       </form>
 
-      <div className="login__register-wraper" >
+      <div className="login__register-wraper">
         не зарегистрирован?
         <Link to="/register">
           <span className="login__register">Зарегистрироваться</span>

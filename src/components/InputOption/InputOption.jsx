@@ -1,5 +1,5 @@
 import React from "react";
-import "./InputOption.css";
+import "./InputOption.scss";
 
 function InputOption({ color, Icon, text }) {
   return (

@@ -1,5 +1,5 @@
 import { Avatar, Box, IconButton, Toolbar, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useSelector, useDispatch } from "react-redux/es/exports";
 import { setOpen } from "../../features/menuSlice";
@@ -53,7 +53,7 @@ export default function Header() {
             </IconButton>
           )}
           <div className={style.logoWrapper}>
-            <img src={logo} />
+            <img alt="logo"src={logo} />
           </div>
           <Typography
             className={style.avatarrr}

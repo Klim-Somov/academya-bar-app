@@ -9,10 +9,9 @@ export const avatarImgSlice = createSlice({
   initialState,
 
   reducers: {
-    setAvatar: (state, {payload}) => {
+    setAvatar: (state, { payload }) => {
       state.avatarUrl = payload;
     },
-   
   },
 });
 

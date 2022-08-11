@@ -1,10 +1,11 @@
+// import Divider from "@mui/material/Divider";
+// import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import List from "@mui/material/List";
-// import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -16,7 +17,6 @@ import { useSelector, useDispatch } from "react-redux/es/exports";
 import { setClose } from "../../features/menuSlice";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { logout } from "../../features/userSlice";
-// import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import style from "./SideBar.module.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { setAvatar } from "../../features/avatarImgSlice";
@@ -31,7 +31,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
 }));

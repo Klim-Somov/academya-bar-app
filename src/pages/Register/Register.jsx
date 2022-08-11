@@ -1,3 +1,5 @@
+// import { setAvatar } from "../../features/avatarImgSlice";
+// import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import React, { useState } from "react";
 import "./Register.scss";
 import { Link } from "react-router-dom";
@@ -6,17 +8,15 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase";
 import { login } from "../../features/userSlice";
 import { useNavigate } from "react-router-dom";
-// import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-// import { setAvatar } from "../../features/avatarImgSlice";
 
 function Register() {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
   const [email, setEmail] = useState("");
-  // const [image, setImage] = useState("");
-  // const [imageUrl, setImageUrl] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const [image, setImage] = useState("");
+  // const [imageUrl, setImageUrl] = useState("");
 
   // const hendleChange = (e) => {
   //   if (e.target.files[0]) {

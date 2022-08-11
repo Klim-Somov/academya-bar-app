@@ -4,11 +4,11 @@
 //   ShareOutlined,
 //   ThumbUpAltOutlined,
 // } from "@mui/icons-material";
+// import InputOption from "../InputOption/InputOption";
+// import InputOption from "./InputOption";
 import { Avatar } from "@mui/material";
 import React, { forwardRef } from "react";
 import { useSelector } from "react-redux";
-// import InputOption from "../InputOption/InputOption";
-// import InputOption from "./InputOption";
 import "./Post.scss";
 
 const Post = forwardRef(({ name, description, msg, img }, ref) => {

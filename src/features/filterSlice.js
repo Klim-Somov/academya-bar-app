@@ -10,10 +10,10 @@ export const filterSlice = createSlice({
   initialState,
 
   reducers: {
-    setFilterCategory: (state, {payload}) => {
+    setFilterCategory: (state, { payload }) => {
       state.currentCategory = payload;
     },
-    setCategoryIndex: (state, {payload}) => {
+    setCategoryIndex: (state, { payload }) => {
       state.categoryIndex = payload;
     },
   },

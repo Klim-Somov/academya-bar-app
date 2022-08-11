@@ -14,13 +14,10 @@ export const togleMenuSlice = createSlice({
     },
     setClose: (state) => {
       state.open = false;
-    }
+    },
   },
-
 });
 
-export const { setClose, setOpen,  } = togleMenuSlice.actions;
-
-
+export const { setClose, setOpen } = togleMenuSlice.actions;
 
 export default togleMenuSlice.reducer;

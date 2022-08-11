@@ -15,15 +15,8 @@ import InputOption from "../../components/InputOption/InputOption";
 
 function Chat() {
   const user = useSelector((state) => state.user.user);
-
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState("");
-  // const [shareImage, setShareImage] = useState("");
-
-  // const hendleChange = (e) => {
-  //  ;
-  //   setShareImage(e.target.files[0]);
-  // };
 
   const postRef = ref(db, "posts");
   const getpostRefById = (id) => ref(db, `posts/${id}`);
