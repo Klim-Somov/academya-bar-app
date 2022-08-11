@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Bar App",
+  "name": "Academia",
   "icons": [
     {
-      "src": "Coffee-or-bartender.png",
+      "src": "cup.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "Coffee-or-bartender.png",
+      "src": "cup.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "Coffee-or-bartender.png",
+      "src": "cup.png",
       "type": "image/png",
       "sizes": "512x512"
     }

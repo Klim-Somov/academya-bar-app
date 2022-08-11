@@ -7,9 +7,8 @@ import { CardActionArea } from "@mui/material";
 import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import { useSelector } from "react-redux/es/exports";
-import style from "./ProductCards.module.scss"
+import style from "./ProductCards.module.scss";
 import BackToTopBtn from "../BackToTopBtn/BackToTopBtn";
-
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -51,7 +50,7 @@ function ProductCards() {
     <Box sx={{ display: "flex" }}>
       <Main open={open}>
         <DrawerHeader />
-        <div  className={style.cardContainer}>
+        <div className={style.cardContainer}>
           {result.map((obj) => (
             <Card key={obj.id} sx={{ maxWidth: 345 }}>
               <CardActionArea>
@@ -62,7 +61,14 @@ function ProductCards() {
                   alt={obj.name}
                 />
                 <CardContent>
-                  <Typography  className={style.cardTitle} gutterBottom variant="h5" component="div">
+                  <Typography
+                    className={style.cardTitle}
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    fontWeight='bolder'
+
+                  >
                     {obj.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
@@ -72,8 +78,30 @@ function ProductCards() {
                     variant="body2"
                     component="ul"
                     color="text.secondary"
+                    fontWeight="bolder"
+                    marginTop='20px'
+               
                   >
                     {obj.ingredients.map((array, i) => (
+                      <li key={i}>{array}</li>
+                    ))}
+                  </Typography>
+                  <Typography
+                    fontWeight="bolder"
+                    color="rgb(65, 63, 69)"
+                    component="h4"
+                    marginTop='20px'
+                  >
+                    {obj.extName}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    component="ul"
+                    marginTop='10px'
+                    color="text.secondary"
+                    fontWeight="bolder"
+                  >
+                    {obj.extIngredients?.map((array, i) => (
                       <li key={i}>{array}</li>
                     ))}
                   </Typography>
@@ -82,7 +110,7 @@ function ProductCards() {
             </Card>
           ))}
         </div>
-        <BackToTopBtn  />
+        <BackToTopBtn />
       </Main>
     </Box>
   );
