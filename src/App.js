@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux/es/exports";
-
 import "./App.css";
 import Header from "./components/Header/Header";
 import Login from "./pages/Login/Login";
@@ -11,14 +10,14 @@ import { login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
 import SideBar from "./components/SideBar/SideBar";
 import Technos from "./pages/Technos";
-// import Main from "./pages/Main/Main";
 import Chat from "./pages/Chat/Chat";
+// import Main from "./pages/Main/Main";
 // import { setAvatar } from "./features/avatarImgSlice";
 // import { getDownloadURL, ref } from "firebase/storage";
 
 function App() {
-  const user = useSelector((state) => state.user);
   // const avatar = useSelector((state) => state.avatar.avatarUrl);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {

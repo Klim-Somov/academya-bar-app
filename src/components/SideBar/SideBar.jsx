@@ -59,9 +59,14 @@ export default function SideBar() {
   const menuRef = React.useRef();
 
   React.useEffect(() => {
-    document.addEventListener("mousedown", (e) => {
+    const hendleClickOutside = (e) => {
       if (!e.target !== menuRef) dispatch(setClose());
-    });
+    };
+    document.addEventListener("mousedown", hendleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", hendleClickOutside);
+    };
   }, []);
 
   return (
