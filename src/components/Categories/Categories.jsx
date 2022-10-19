@@ -5,20 +5,16 @@ import {
 } from "../../features/filterSlice";
 import style from "./Categories.module.scss";
 
-
-
-
 function Categories() {
-
-
   const categoryIndex = useSelector((state) => state.filter.categoryIndex);
   const dispatch = useDispatch();
 
   const categoriesList = [
     "Горячие",
-    "Сезонные",
+    "Сезонные Лимонады",
     "Коктейли",
     "Безалкогольные",
+    "Сезонные Согревающие",
     "Крепкий алкоголь",
   ];
 
@@ -27,8 +23,6 @@ function Categories() {
     dispatch(setFilterCategory(cat));
   };
 
-  
-  
   return (
     <div className={style.categories}>
       <ul>
